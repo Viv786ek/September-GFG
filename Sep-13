@@ -1,0 +1,50 @@
+class Solution{
+  public:
+    int arr[100002],j=0,k=0;
+
+    void inorder(Node* root)
+
+    {
+
+        if(root!=NULL)
+
+        {
+
+            inorder(root->left);
+
+            arr[j++]=root->data;
+
+            inorder(root->right);
+
+        }
+
+    }
+
+    void postorder(Node* root)
+
+    {
+
+        if(root!=NULL)
+
+        {
+
+            postorder(root->left);
+
+            postorder(root->right);
+
+            root->data=arr[k++];
+
+        }
+
+    }
+
+    void convertToMaxHeapUtil(Node* root)
+
+    {
+
+        inorder(root);
+
+        postorder(root);
+
+    }     
+};
