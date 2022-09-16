@@ -1,0 +1,12 @@
+int minimumSwaps(int pos[],int v[],int n,int k,int b,int T)
+    {
+          int swaps=0,c=0;
+          for(int i=n-1;i>=0;i--)
+          {
+              pos[i]=pos[i]+v[i]*T;
+              if(pos[i]<b) c++;
+              else if(k-->0) swaps+=c;
+          }
+          if(k>0) return -1;
+          return swaps;  
+    }
