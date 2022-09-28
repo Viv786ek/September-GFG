@@ -1,0 +1,17 @@
+ long minCost(long arr[], int n) 
+    {
+        // your code here
+        PriorityQueue<Long> pq=new PriorityQueue<>();
+        for(int i=0;i<n;i++){
+            pq.add(arr[i]);
+        }
+        long cost=0;
+        while(pq.size()>1){
+            long first=pq.poll();
+            long second=pq.poll();
+            long sum=first+second;
+            cost+=sum;
+            pq.add(sum);
+        }
+        return cost;
+    }
